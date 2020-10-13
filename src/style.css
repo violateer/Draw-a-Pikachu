@@ -1,7 +1,26 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none
+}
+
+.show {
+    position: absolute;
+    height: 50%;
+    left: 0;
+}
+
+.container {
+    position: absolute;
     background: #FFE600;
     font-size: 100px;
-    box-sizing: border-box;
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    left: 0;
 }
 
 #pikachu {
