@@ -3,14 +3,17 @@
     padding: 0;
 }
 
-body::-webkit-scrollbar {
-    display: none
-}
-
 .show {
     position: absolute;
     height: 50%;
+    width: 100%;
     left: 0;
+    font-size: 20px;
+    overflow: scroll;
+}
+
+.show::-webkit-scrollbar {
+    display: none;
 }
 
 .container {
