@@ -3,13 +3,14 @@ import {
 } from './code.js'
 let currentIndex = 0
 let codeClock = null
+let toggleFlag = false
 const showCode = document.querySelector('#code')
 const cssCode = document.querySelector('#cssCode')
 const slowBtn = document.querySelector('#slow')
 const mediumBtn = document.querySelector('#medium')
 const quickBtn = document.querySelector('#quick')
-const startBtn = document.querySelector('#start')
-const pauseBtn = document.querySelector('#pause')
+const toggleBtn = document.querySelector('#toggle')
+const restartBtn = document.querySelector('#restart')
 
 const showCodeAnimation = (interval) => {
   if (codeClock) {
@@ -29,12 +30,21 @@ const showCodeAnimation = (interval) => {
 
 showCodeAnimation(100)
 
-startBtn.addEventListener('click', () => {
-  showCodeAnimation(100)
+toggleBtn.addEventListener('click', () => {
+  toggleBtn.innerText = toggleFlag === false ? '开始' : '暂停'
+  toggleFlag = !toggleFlag
+  if (toggleFlag) {
+    window.clearInterval(codeClock)
+  } else {
+    showCodeAnimation(100)
+  }
 })
 
-pauseBtn.addEventListener('click', () => {
+restartBtn.addEventListener('click', () => {
+  currentIndex = 0
   window.clearInterval(codeClock)
+  showCodeAnimation(100)
+  toggleBtn.innerText = '暂停'
 })
 
 slowBtn.addEventListener('click', () => {
