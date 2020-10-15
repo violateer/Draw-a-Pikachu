@@ -1,6 +1,4 @@
-import {
-  code
-} from './code.js'
+import code from './code.js'
 let currentIndex = 0
 let codeClock = null
 let toggleFlag = false
@@ -44,6 +42,7 @@ restartBtn.addEventListener('click', () => {
   currentIndex = 0
   window.clearInterval(codeClock)
   showCodeAnimation(100)
+  toggleFlag = !toggleFlag
   toggleBtn.innerText = '暂停'
 })
 

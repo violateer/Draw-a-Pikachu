@@ -1,4 +1,4 @@
-export const code = `#pikachu {
+const code = `#pikachu {
     position: absolute;
     width: 4.2em;
     height: 2.35em;
@@ -151,3 +151,5 @@ export const code = `#pikachu {
 .cheek.right {
     right: 0;
 }`
+
+export default code
