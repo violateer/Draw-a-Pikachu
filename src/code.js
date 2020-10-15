@@ -150,5 +150,4 @@ export const code = `#pikachu {
 
 .cheek.right {
     right: 0;
-}`    
-
+}`

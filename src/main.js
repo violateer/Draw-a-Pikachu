@@ -1,15 +1,40 @@
-import {code} from './code.js'
-let count = 1
-const show = document.querySelector('.show')
+import {
+  code
+} from './code.js'
+let currentIndex = 0
+let codeClock = null
+const showCode = document.querySelector('#code')
 const cssCode = document.querySelector('#cssCode')
+const slowBtn = document.querySelector('#slow')
+const mediumBtn = document.querySelector('#medium')
+const quickBtn = document.querySelector('#quick')
 
-let codeClock = setInterval(() => {
-    count++
-    if(count > code.length) {
-    clearTimeout(codeClock)
-        return
+const showCodeAnimation = (interval) => {
+  if (codeClock) {
+    window.clearInterval(codeClock)
+  }
+  codeClock = setInterval(() => {
+    currentIndex++
+    if (currentIndex > code.length) {
+      window.clearInterval(codeClock)
+      return
     }
-    show.innerText = code.substring(0, count)
-    cssCode.innerText = code.substring(0, count)
-    show.scrollTop = show.scrollHeight
-}, 0);
+    showCode.innerText = code.substring(0, currentIndex)
+    cssCode.innerText = code.substring(0, currentIndex)
+    showCode.scrollTop = showCode.scrollHeight
+  }, interval);
+}
+
+showCodeAnimation(100)
+
+slowBtn.addEventListener('click', () => {
+  showCodeAnimation(300)
+})
+
+mediumBtn.addEventListener('click', () => {
+  showCodeAnimation(100)
+})
+
+quickBtn.addEventListener('click', () => {
+  showCodeAnimation(10)
+})
