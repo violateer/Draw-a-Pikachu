@@ -8,6 +8,8 @@ const cssCode = document.querySelector('#cssCode')
 const slowBtn = document.querySelector('#slow')
 const mediumBtn = document.querySelector('#medium')
 const quickBtn = document.querySelector('#quick')
+const startBtn = document.querySelector('#start')
+const pauseBtn = document.querySelector('#pause')
 
 const showCodeAnimation = (interval) => {
   if (codeClock) {
@@ -26,6 +28,14 @@ const showCodeAnimation = (interval) => {
 }
 
 showCodeAnimation(100)
+
+startBtn.addEventListener('click', () => {
+  showCodeAnimation(100)
+})
+
+pauseBtn.addEventListener('click', () => {
+  window.clearInterval(codeClock)
+})
 
 slowBtn.addEventListener('click', () => {
   showCodeAnimation(300)

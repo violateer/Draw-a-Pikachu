@@ -42,10 +42,18 @@ body::-webkit-scrollbar {
     font-size: 20px;
 }
 
-.show>#medium {
+.show>#pause {
   top: 70px;
 }
 
-.show>#quick {
+.show>#slow {
   top: 130px;
+}
+
+.show>#medium {
+  top: 190px;
+}
+
+.show>#quick {
+  top: 250px;
 }
